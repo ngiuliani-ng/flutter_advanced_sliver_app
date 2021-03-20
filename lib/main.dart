@@ -22,15 +22,27 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
-      body: contactList(context),
+      body: CustomScrollView(
+        slivers: [
+          appBar(),
+          contactList(context),
+        ],
+      ),
     );
   }
 
   Widget appBar() {
-    return AppBar(
+    return SliverAppBar(
       title: Text("Sliver"),
       centerTitle: true,
+
+      /// Se [floating] è "true" ci permette di far comparire
+      /// la [SliverAppBar] senza tornare completamente in alto.
+      floating: true,
+
+      /// Se [snap] è "true" ci permette di far comparire
+      /// la [SliverAppBar] appena scrolliamo.
+      snap: true,
       leading: IconButton(
         icon: Icon(
           Icons.dehaze,
@@ -49,9 +61,11 @@ class HomePage extends StatelessWidget {
   }
 
   Widget contactList(BuildContext context) {
-    return ListView.builder(
-      itemCount: 50,
-      itemBuilder: (context, index) => contactCard(index),
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) => contactCard(index),
+        childCount: 50,
+      ),
     );
   }
 
