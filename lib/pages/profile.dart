@@ -10,7 +10,9 @@ class ProfilePage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           appBar(),
+          sectionTitleGrid(title: "Photos"),
           imageGrid(),
+          sectionTitleSocial(title: "Social"),
           socialList(),
         ],
       ),
@@ -25,6 +27,23 @@ class ProfilePage extends StatelessWidget {
         background: Image.asset(
           "assets/images/avatar.jpg",
           fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  Widget sectionTitleGrid({@required String title}) {
+    /// Lo [SliverToBoxAdapter] ci permette di "trasformare"/"modificare"
+    /// un classico componente in uno adatto per il [CustomScrollView].
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: EdgeInsets.fromLTRB(12, 24, 12, 12),
+        child: Text(
+          title,
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );
@@ -57,6 +76,23 @@ class ProfilePage extends StatelessWidget {
           fit: BoxFit.cover,
         ),
         borderRadius: BorderRadius.circular(6),
+      ),
+    );
+  }
+
+  Widget sectionTitleSocial({@required String title}) {
+    /// Lo [SliverToBoxAdapter] ci permette di "trasformare"/"modificare"
+    /// un classico componente in uno adatto per il [CustomScrollView].
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: EdgeInsets.fromLTRB(12, 12, 12, 24),
+        child: Text(
+          title,
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
     );
   }

@@ -13,5 +13,5 @@ A new Flutter application. Fudeo exercises.
     - Lesson 3.3: https://bit.ly/3vJB7g9
         - Argument: **Profile Page**
             - Screenshot App: Screenshot\Screenshot_1616266592.png - Home Page
-            - Screenshot App: Screenshot\Screenshot_1616266597.png - Profile Page Top
-            - Screenshot App: Screenshot\Screenshot_1616266601.png - Profile Page Bottom
+            - Screenshot App: Screenshot\Screenshot_1616274086.png - Profile Page Top
+            - Screenshot App: Screenshot\Screenshot_1616274089.png - Profile Page Bottom
