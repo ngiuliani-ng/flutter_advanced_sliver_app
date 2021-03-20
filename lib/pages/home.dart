@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_advanced_sliver_app/pages/profile.dart';
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -45,17 +47,27 @@ class HomePage extends StatelessWidget {
   Widget contactList(BuildContext context) {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-        (context, index) => contactCard(index),
+        (context, index) => contactCard(context, index),
         childCount: 50,
       ),
     );
   }
 
-  Widget contactCard(int index) {
+  Widget contactCard(BuildContext context, int index) {
     return ListTile(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProfilePage(
+              contactIndex: index,
+            ),
+          ),
+        );
+      },
       leading: CircleAvatar(
         radius: 25,
-        backgroundColor: Colors.grey.shade600,
+        backgroundImage: AssetImage("assets/images/avatar.jpg"),
       ),
       title: Text("Contact $index"),
       subtitle: Text("Hello!"),
